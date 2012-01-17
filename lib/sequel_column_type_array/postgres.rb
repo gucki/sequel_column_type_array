@@ -6,6 +6,12 @@ module Sequel
     PG_TYPES[1014] = lambda{ |s| StringColumnArray.new(s) } # character[]
     PG_TYPES[1015] = PG_TYPES[1014] # character varying[]
 
+    class Dataset < Sequel::Dataset
+      def literal_array_append(sql, v)
+        sql << literal_array(v)
+      end
+    end
+
     module DatabaseMethods
       def schema_column_type(db_type)
         type = super(db_type)
