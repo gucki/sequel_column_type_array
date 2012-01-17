@@ -5,7 +5,7 @@ module Sequel
       case data
         when String
           csv = data[1..-2]
-          csv.blank? ? [] : csv.parse_csv
+          (csv.nil? || csv.empty?) ? [] : csv.parse_csv
         when Array
           data
         else
