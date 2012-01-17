@@ -1,5 +1,4 @@
 module Sequel
-
   class ColumnArray < Array
     def normalize(data)
       case data
