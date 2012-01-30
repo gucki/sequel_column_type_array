@@ -5,6 +5,7 @@ module Sequel
     PG_TYPES[1007] = lambda{ |s| IntegerColumnArray.new(s) } # integer[]
     PG_TYPES[1014] = lambda{ |s| StringColumnArray.new(s) } # character[]
     PG_TYPES[1015] = PG_TYPES[1014] # character varying[]
+    PG_TYPES[1009] = PG_TYPES[1014] # text[]
 
     class Dataset < Sequel::Dataset
       def literal_array_append(sql, v)
